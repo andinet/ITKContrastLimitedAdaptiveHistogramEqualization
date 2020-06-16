@@ -1,0 +1,5 @@
+set(ContrastLimitedAdaptiveHistogramEqualization_SRCS
+  itkMinimalStandardRandomVariateGenerator.cxx
+  )
+
+itk_module_add_library(ContrastLimitedAdaptiveHistogramEqualization ${ContrastLimitedAdaptiveHistogramEqualization_SRCS})

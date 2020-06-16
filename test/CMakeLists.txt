@@ -1,0 +1,21 @@
+itk_module_test()
+
+set(ContrastLimitedAdaptiveHistogramEqualizationTests
+  itkMinimalStandardRandomVariateGeneratorTest.cxx
+  itkitkContrastLimitedAdaptiveHistogramEqualizationTest.cxx
+  )
+
+CreateTestDriver(ContrastLimitedAdaptiveHistogramEqualization "${ContrastLimitedAdaptiveHistogramEqualization-Test_LIBRARIES}" "${ContrastLimitedAdaptiveHistogramEqualizationTests}")
+
+itk_add_test(NAME itkMinimalStandardRandomVariateGeneratorTest
+  COMMAND ContrastLimitedAdaptiveHistogramEqualizationTestDriver itkMinimalStandardRandomVariateGeneratorTest
+  )
+
+itk_add_test(NAME itkitkContrastLimitedAdaptiveHistogramEqualizationTest
+  COMMAND ContrastLimitedAdaptiveHistogramEqualizationTestDriver
+    --compare
+    DATA{Baseline/itkitkContrastLimitedAdaptiveHistogramEqualizationTestOutput.mha}
+    ${ITK_TEST_OUTPUT_DIR}/itkitkContrastLimitedAdaptiveHistogramEqualizationTestOutput.mha
+  itkitkContrastLimitedAdaptiveHistogramEqualizationTest
+    ${ITK_TEST_OUTPUT_DIR}/itkitkContrastLimitedAdaptiveHistogramEqualizationTestOutput.mha
+  )
